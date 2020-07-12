@@ -1,5 +1,8 @@
 package ru.lanit.testng.utils;
 
+/**
+ * Enum that contains set of operators.
+ */
 public enum OperatorType {
     ADDITION {
         @Override
@@ -32,8 +35,18 @@ public enum OperatorType {
         }
     };
 
+    /**
+     * Map enum element to char.
+     * @return a char that represents its enum.
+     */
     abstract char toChar();
 
+    /**
+     * Map char to enum element.
+     * @param ch a char that represents its enum.
+     * @return OperatorType corresponding to the char
+     * or NONE OperatorType otherwise.
+     */
     public static OperatorType operatorTypeOf(char ch) {
         for (OperatorType value : OperatorType.values()) {
             if (value.toChar() == ch) {

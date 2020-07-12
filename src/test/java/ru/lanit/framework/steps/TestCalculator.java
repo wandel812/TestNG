@@ -24,7 +24,7 @@ public class TestCalculator {
 
     @Test(dataProvider = "addition")
     public void testAddition(double a, double b, double result) {
-        assertEquals(addition(a, b), result, EPS);
+        assertEquals(add(a, b), result, EPS);
     }
 
     @DataProvider(name = "subtraction")
@@ -43,7 +43,7 @@ public class TestCalculator {
 
     @Test(dataProvider = "subtraction")
     public void testSubtraction(double a, double b, double result) {
-        assertEquals(subtraction(a, b), result, EPS);
+        assertEquals(subtract(a, b), result, EPS);
     }
 
     @DataProvider(name = "multiplication")
@@ -62,7 +62,7 @@ public class TestCalculator {
 
     @Test(dataProvider = "multiplication")
     public void testMultiplication(double a, double b, double result) {
-        assertEquals(multiplication(a, b), result, EPS);
+        assertEquals(multiply(a, b), result, EPS);
     }
 
     @DataProvider(name = "division")
@@ -84,7 +84,7 @@ public class TestCalculator {
 
     @Test(dataProvider = "division")
     public void testDivision(double a, double b, double result) {
-        assertEquals(division(a, b), result, EPS);
+        assertEquals(divide(a, b), result, EPS);
     }
 
     @DataProvider(name = "divisionByZero")
@@ -101,7 +101,7 @@ public class TestCalculator {
 
     @Test(dataProvider = "divisionByZero")
     public void testDivisionByZero(double a, double b) {
-        assertThrows(ArithmeticException.class, () -> division(a, b));
+        assertThrows(ArithmeticException.class, () -> divide(a, b));
     }
 
     @DataProvider(name = "notEqualsWithAllOperators")
@@ -119,10 +119,10 @@ public class TestCalculator {
 
     @Test(dataProvider = "notEqualsWithAllOperators")
     public void testNotEqualsWithAllOperators(double a, double b, double wrongResult) {
-        assertNotEquals(addition(a, b), wrongResult);
-        assertNotEquals(subtraction(a, b), wrongResult);
-        assertNotEquals(multiplication(a, b), wrongResult);
-        assertNotEquals(division(a, b), wrongResult);
+        assertNotEquals(add(a, b), wrongResult);
+        assertNotEquals(subtract(a, b), wrongResult);
+        assertNotEquals(multiply(a, b), wrongResult);
+        assertNotEquals(divide(a, b), wrongResult);
     }
 
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <File name="mainLogsFile" fileName="mainLogs.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%-5p] [meth: %.20M] [line: %L] %C - %msg%n"/>
+        </File>
+        <File name="errorLogsFile" fileName="errorLogs.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%-5p] [meth: %.20M] [line: %L] %C - %msg%n"/>
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger level="ALL" name="ru.lanit.testng">
+            <AppenderRef ref="mainLogsFile"/>
+        </Logger>
+        <Root level="ALL">
+            <AppenderRef ref="errorLogsFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
