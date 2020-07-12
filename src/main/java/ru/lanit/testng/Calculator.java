@@ -1,5 +1,8 @@
 package ru.lanit.testng;
 
+import ru.lanit.testng.utils.OperatorType;
+import ru.lanit.testng.utils.ResultTuple;
+
 public class Calculator {
 
     public static final double EPS = 1E-7;
@@ -21,5 +24,29 @@ public class Calculator {
             throw new ArithmeticException("division by zero");
         }
         return a / b;
+    }
+
+    public static double calculate(ResultTuple<Double, Double, OperatorType> input) {
+       return calculate(input.operandA, input.operandB, input.operator);
+    }
+
+    public static double calculate(double a, double b, OperatorType operatorType) {
+        switch (operatorType) {
+            case ADDITION: {
+                return addition(a, b);
+            }
+            case SUBTRACTION: {
+                return subtraction(a, b);
+            }
+            case MULTIPLICATION: {
+                return multiplication(a, b);
+            }
+            case DIVISION: {
+                return division(a, b);
+            }
+            default: {
+                throw new RuntimeException("Should not come here!");
+            }
+        }
     }
 }
