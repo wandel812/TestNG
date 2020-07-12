@@ -2,12 +2,12 @@ package ru.lanit.testng.utils;
 
 import java.util.Objects;
 
-public class ResultTuple<T, S, U> {
-    public final T operandA;
-    public final S operandB;
-    public final U operator;
+public class ResultTuple {
+    public final Double operandA;
+    public final Double operandB;
+    public final OperatorType operator;
 
-    public ResultTuple(T operandA, S operandB, U operator) {
+    public ResultTuple(Double operandA, Double operandB, OperatorType operator) {
         this.operandA = operandA;
         this.operandB = operandB;
         this.operator = operator;
@@ -25,10 +25,10 @@ public class ResultTuple<T, S, U> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ResultTuple<?, ?, ?> that = (ResultTuple<?, ?, ?>) o;
+        ResultTuple that = (ResultTuple) o;
         return operandA.equals(that.operandA)
                 && operandB.equals(that.operandB)
-                && operator.equals(that.operator);
+                && operator == that.operator;
     }
 
     @Override

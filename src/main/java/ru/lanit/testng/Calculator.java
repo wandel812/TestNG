@@ -26,7 +26,7 @@ public class Calculator {
         return a / b;
     }
 
-    public static double calculate(ResultTuple<Double, Double, OperatorType> input) {
+    public static double calculate(ResultTuple input) {
        return calculate(input.operandA, input.operandB, input.operator);
     }
 

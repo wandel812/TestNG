@@ -4,7 +4,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.lanit.testng.parser.Parser;
 import ru.lanit.testng.parser.exception.ParserException;
-import ru.lanit.testng.utils.OperatorType;
 import ru.lanit.testng.utils.ResultTuple;
 
 import static org.testng.Assert.*;
@@ -14,24 +13,24 @@ public class TestParser {
     @DataProvider(name = "dataProviderParsePositive")
     public Object[][] dataProviderParsePositive() {
         return new Object[][]{
-                {"12.54 + 231.23", new ResultTuple<>(12.54, 231.23, ADDITION)},
-                {"+12.54 + 231.23", new ResultTuple<>(12.54, 231.23, ADDITION)},
-                {"12.54 + +231.23", new ResultTuple<>(12.54, 231.23, ADDITION)},
-                {"12.54 - 231.23", new ResultTuple<>(12.54, 231.23, SUBTRACTION)},
-                {"12.54 - -231.23", new ResultTuple<>(12.54, -231.23, SUBTRACTION)},
-                {"12.54 * -231.23", new ResultTuple<>(12.54, -231.23, MULTIPLICATION)},
-                {"-12.54 * -231.23", new ResultTuple<>(-12.54, -231.23, MULTIPLICATION)},
-                {"12.54 / 231.23", new ResultTuple<>(12.54, 231.23, DIVISION)},
-                {"124 + 0.300203", new ResultTuple<>(124, 0.300203, ADDITION)},
-                {"1.20003 + 21", new ResultTuple<>(1.20003, 21, ADDITION)},
-                {"1 + 2", new ResultTuple<>(1, 2, ADDITION)}
+                {"12.54 + 231.23", new ResultTuple(12.54, 231.23, ADDITION)},
+                {"+12.54 + 231.23", new ResultTuple(12.54, 231.23, ADDITION)},
+                {"12.54 + +231.23", new ResultTuple(12.54, 231.23, ADDITION)},
+                {"12.54 - 231.23", new ResultTuple(12.54, 231.23, SUBTRACTION)},
+                {"12.54 - -231.23", new ResultTuple(12.54, -231.23, SUBTRACTION)},
+                {"12.54 * -231.23", new ResultTuple(12.54, -231.23, MULTIPLICATION)},
+                {"-12.54 * -231.23", new ResultTuple(-12.54, -231.23, MULTIPLICATION)},
+                {"12.54 / 231.23", new ResultTuple(12.54, 231.23, DIVISION)},
+                {"124 + 0.300203", new ResultTuple(124.0, 0.300203, ADDITION)},
+                {"1.20003 + 21", new ResultTuple(1.20003, 21.0, ADDITION)},
+                {"1 + 2", new ResultTuple(1.0, 2.0, ADDITION)}
         };
     }
 
     @Test(dataProvider = "dataProviderParsePositive")
-    public void testParsePositive(String input, ResultTuple<Double, Double, OperatorType> expectedValue) {
+    public void testParsePositive(String input, ResultTuple expectedValue) {
         try {
-            ResultTuple<Double, Double, OperatorType> actualValue = Parser.parse(input);
+            ResultTuple actualValue = Parser.parse(input);
             assertEquals(actualValue, expectedValue);
         } catch (ParserException e) {
             fail(e.getMessage());
