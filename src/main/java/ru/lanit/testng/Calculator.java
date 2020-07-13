@@ -50,7 +50,7 @@ public class Calculator {
     }
 
     /**
-     * Division of two operands. Whe the right operand is less or equal than
+     * Division of two operands. Where the right operand is less or equal than
      * EPS (delta) ArithmeticException is returned.
      * @param a left operand.
      * @param b right operand.
@@ -65,7 +65,7 @@ public class Calculator {
     }
 
     /**
-     * Calculate the result of an two operands and operator that are
+     * Calculate result of an two operands and operator that are
      * passed using tuple.
      * @param input tuple that contains two operands of type double
      *              and an operator through corresponding enum.
@@ -76,11 +76,11 @@ public class Calculator {
     }
 
     /**
-     * Calculate the result of two operands and operator.
+     * Calculate result of two operands and operator.
      * @param a left operand.
      * @param b right operand.
      * @param operatorType operator type (addition, subtraction, etc.)
-     * @return
+     * @return result of operands.
      */
     public static double calculate(double a, double b, OperatorType operatorType) {
         switch (operatorType) {

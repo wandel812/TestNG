@@ -1,4 +1,4 @@
-package ru.lanit.framework.steps;
+package ru.lanit.framework.steps.parser;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
